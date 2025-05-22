@@ -3,7 +3,12 @@ import sound from './assets/sound.mp3';
 import dragsound from './assets/drag.mp3';
 import gamesound from './assets/gameSound.mp3';
 
+function isWebKit() {
+    return /AppleWebKit/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+}
+
 export function click() {
+    if (isWebKit()) return;
     const audio = new Audio(sound);
     audio.volume = 0.2; 
     audio.currentTime = 0.05; 
@@ -15,6 +20,7 @@ export function click() {
 }
 
 export function dragSound() {
+    if (isWebKit()) return;
     const audio = new Audio(dragsound);
     audio.volume = 0.1;
     audio.play();
@@ -25,6 +31,7 @@ export function dragSound() {
 }
 
 export function gameSound() {
+    if (isWebKit()) return;
     const audio = new Audio(gamesound);
     audio.volume = 0.7;
     audio.currentTime = 0.5;

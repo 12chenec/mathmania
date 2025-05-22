@@ -90,6 +90,8 @@ const Game = ({ mode, operations, timeLimit, questionCount, maxDigits, onGameOve
                     <p1>{problem.q}</p1>
                     <input
                         type="number"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         value={userInput}
                         onChange={handleInputChange}
                         autoFocus
