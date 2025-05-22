@@ -1,0 +1,69 @@
+.timer-header {
+    font-family: monospace;
+    font-size: 1.7rem;
+    padding-top: 1.8rem;
+}
+
+.timer-container {
+    display: grid;
+    width: min-content;
+    white-space: nowrap;
+    grid-template-columns: 1fr 1fr;
+}
+
+.timer-header2 {
+    font-family: monospace;
+    font-size: 2rem;
+    margin: 0.5rem;
+    text-align: center;
+    padding-top: 2.5rem;
+    padding-bottom: 1.75rem;
+}
+
+.qcontainer {
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    /* Arrange items in a column */
+    justify-content: center;
+    align-items: center;
+    /* Center items horizontally */
+    gap: 2rem;
+    /* Add space between the items */
+}
+
+.problem-container {
+    display: flex;
+    margin: 0rem;
+    flex-direction: column;
+    /* Arrange items in a column */
+    justify-content: center;
+    /* Center items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    height: 60vh;
+    /* Full viewport height */
+    gap: 0;
+    /* Add space between the items */
+}
+
+input[type=number] {
+    font-size: 1.5rem;
+    font-weight: 900;
+    user-select: auto;
+    -webkit-user-select: auto;
+    outline: none;
+    width: 3em;
+    padding: 0.5em;
+    border: .2em solid orange;
+    border-radius: 1em;
+    text-align: center;
+    color: orange;
+    appearance: textfield;
+    margin: 0;
+
+    &::-webkit-inner-spin-button {
+        opacity: 1;
+        background: red;
+    }
+}

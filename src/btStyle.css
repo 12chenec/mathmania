@@ -1,0 +1,129 @@
+.bt,
+.bt *,
+.bt :after,
+.bt :before,
+.bt:after,
+.bt:before {
+    border: 0 solid;
+    box-sizing: border-box;
+}
+
+.bt {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: button;
+    appearance: button;
+    background-color: #000;
+    background-image: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+    mask-image: radial-gradient(#000, #fff);
+    padding: 0;
+    border-radius: 12px;
+    /* Add rounded corners to the button */
+}
+
+.bt:disabled {
+    cursor: default;
+}
+
+.bt {
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    font-weight: 900;
+    position: relative;
+    text-transform: uppercase;
+    background: none;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    /* Smooth transitions */
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide the browser's default checkbox */
+.bt input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.bt .content,
+.bt .depth,
+.bt .shadow {
+    transition: transform 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.bt .content {
+    background: #fff;
+    color: #000;
+    display: grid;
+    height: 84%;
+    left: 0;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    justify-content: center;
+    border-radius: 12px;
+    /* Add rounded corners to the content */
+}
+
+.bt .depth {
+    background: #ccc;
+    height: 25%;
+    top: 70%;
+    border-radius: 0 0 12px 12px;
+    /* Add rounded corners to the depth */
+}
+
+.bt .depth,
+.bt .shadow {
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    /* Add rounded corners to the shadow */
+}
+
+.bt .shadow {
+    background: #777;
+    height: 20%;
+    top: 80%;
+    border-radius: 0 0 12px 12px;
+    /* Add rounded corners to the shadow */
+}
+
+.bt:hover .content {
+    transform: translateY(4%);
+    background: rgb(246, 246, 246);
+}
+
+.bt:hover .shadow {
+    transform: translateY(-10%);
+}
+
+.bt input:checked~.content {
+    transform: translateY(8%);
+    background-color: rgb(255, 162, 22);
+}
+
+.bt input:checked~.shadow {
+    transform: translateY(-30%);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Center the buttons horizontally */
+    gap: 1rem;
+    /* Add space between the buttons */
+}

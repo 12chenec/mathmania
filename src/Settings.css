@@ -1,5 +1,5 @@
 /*LOGO*/
-
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
 .nabla-custom-font {
     font-family: "Nabla", serif;
     font-optical-sizing: auto;
@@ -29,11 +29,11 @@
     margin: 0.5rem;
     text-align: center;
     padding-top: 5rem;
-    font-family: "Nabla", serif;
+    font-family: "Nabla", Arial, Helvetica, sans-serif, serif;
     animation: float 2.5s ease-in-out infinite;
 }
 
-/*HEADERS*/
+/* HEADERS */
 
 h3 {
     font-size: 2rem;
@@ -46,7 +46,33 @@ h3 {
         Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
-/*BUTTON*/
+/* WRAPPERS */
+
+.side-by-side {
+    display: grid;
+    height: min-content;
+    width: min-content;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    padding-bottom: 40px;
+
+    @media (max-width: 768px) {
+        display: block;
+        padding-bottom: 0;
+    }
+}
+
+.setting-container {
+    display: grid;
+    grid-template-rows: 0.25fr 0.25fr 0.25fr;
+}
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* BUTTON */
 
 .btn,
 .btn *,
@@ -171,8 +197,7 @@ h3 {
 }
 
 
-
-/*INPUT*/
+/* INPUT */
 input[type="range"] {
     margin: auto;
     -webkit-appearance: none;
@@ -269,7 +294,7 @@ input[type="range"] {
     /* Add space between the sliders */
 }
 
-/*FOOTER*/
+/* FOOTER */
 .p {
     font-size: 1.35rem;
     margin: 0rem;
@@ -281,10 +306,7 @@ input[type="range"] {
         Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
-
-/*CHECKBOX*/
-/* Customize the label (the container) */
-
+/* CHECKBOX */
 
 .checkbox-container {
     box-sizing: block;
@@ -374,144 +396,12 @@ input[type="range"] {
     transform: translateY(-30%);
 }
 
-
-/*bt*/
-
-.bt,
-.bt *,
-.bt :after,
-.bt :before,
-.bt:after,
-.bt:before {
-    border: 0 solid;
-    box-sizing: border-box;
-}
-
-.bt {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-appearance: button;
-    appearance: button;
-    background-color: #000;
-    background-image: none;
-    color: #fff;
-    cursor: pointer;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    font-size: 100%;
-    line-height: 1.5;
-    margin: 0;
-    -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-    mask-image: radial-gradient(#000, #fff);
-    padding: 0;
-    border-radius: 12px;
-    /* Add rounded corners to the button */
-}
-
-.bt:disabled {
-    cursor: default;
-}
-
-.bt {
-    box-sizing: border-box;
-    padding: 0.5em 1em;
-    font-weight: 900;
-    position: relative;
-    text-transform: uppercase;
-    background: none;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-    /* Smooth transitions */
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Hide the browser's default checkbox */
-.bt input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.bt .content,
-.bt .depth,
-.bt .shadow {
-    transition: transform 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
-}
-
-.bt .content {
-    background: #fff;
-    color: #000;
-    display: grid;
-    height: 84%;
-    left: 0;
-    place-items: center;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    justify-content: center;
-    border-radius: 12px;
-    /* Add rounded corners to the content */
-}
-
-.bt .depth {
-    background: #ccc;
-    height: 25%;
-    top: 70%;
-    border-radius: 0 0 12px 12px;
-    /* Add rounded corners to the depth */
-}
-
-.bt .depth,
-.bt .shadow {
-    display: block;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    border-radius: 0 0 12px 12px;
-    /* Add rounded corners to the shadow */
-}
-
-.bt .shadow {
-    background: #777;
-    height: 20%;
-    top: 80%;
-    border-radius: 0 0 12px 12px;
-    /* Add rounded corners to the shadow */
-}
-
-.bt:hover .content {
-    transform: translateY(4%);
-    background: rgb(246, 246, 246);
-}
-
-.bt:hover .shadow {
-    transform: translateY(-10%);
-}
-
-.bt input:checked~.content {
-    transform: translateY(8%);
-    background-color: rgb(255, 162, 22);
-}
-
-.bt input:checked~.shadow {
-    transform: translateY(-30%);
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    /* Center the buttons horizontally */
-    gap: 1rem;
-    /* Add space between the buttons */
-}
-
 h2 {
     font-size: 1.7rem;
     margin: 1.8rem;
     text-align: left;
     padding-top: 0;
+    padding-left: 0;
     padding-bottom: 0;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
@@ -521,49 +411,10 @@ h2 {
 p1 {
     font-size: 3.5rem;
     font-weight: 900;
-    margin:0;
+    margin: 0;
     padding-top: 0rem;
     padding-bottom: 0rem;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
         Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-}
-
-.qcontainer{
-    display: flex;
-    margin: 1rem;
-    flex-direction: column; /* Arrange items in a column */
-    justify-content: center;
-    align-items: center; /* Center items horizontally */
-    gap: 2rem; /* Add space between the items */
-}
-
-.problem-container{
-    display: flex;
-  margin: 0rem;
-  flex-direction: column; /* Arrange items in a column */
-  justify-content: center; /* Center items vertically */
-  align-items: center; /* Center items horizontally */
-  height: 60vh; /* Full viewport height */
-  gap: 0; /* Add space between the items */
-}
-
-input[type=number] {
-    font-size: 1.5rem;
-    font-weight: 900;
-    user-select: auto;
-    -webkit-user-select: auto;
-    outline:none;
-	width: 3em;
-	padding: 0.5em;
-	border: .2em solid orange;
-	border-radius: 1em;
-	text-align: center;
-	color: orange;
-	appearance: textfield;
-	margin: 0;
-	&::-webkit-inner-spin-button {
-		opacity: 1;
-		background: red;
-	}
 }

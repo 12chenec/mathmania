@@ -3,6 +3,7 @@ import Settings from './Settings';
 import Game from './Game';
 import './App.css';
 import { app, analytics } from './firebase'; // Import Firebase
+import { click, gameSound } from './sound';
 
 const App = () => {
   const [mode, setMode] = useState(null);
@@ -22,6 +23,7 @@ const App = () => {
     }
     else {
       setError(''); // Clear the error message
+      gameSound();
     }
 
     setMode(selectedMode);
@@ -31,10 +33,10 @@ const App = () => {
     setMaxDigits(selectedMaxDigits);
     setResult(null);
     setIsGameOver(false);
-
   };
 
   const handleGameOver = (finalResult) => {
+    gameSound();
     setResult(finalResult);
     setMode(null); // Exit game mode after showing results
     setIsGameOver(true);
@@ -60,17 +62,17 @@ const App = () => {
     <div className='App-header'>
       {!mode && !isGameOver && (
         <>
-        <Settings onStart={handleStart} />
-        {error && (
-          <>
-            <div className="error-overlay"></div>
-            <div className="error-popup">
-              <p>{error}</p>
-              <button onClick={handleCloseError}>Close</button>
-            </div>
-          </>
-        )}
-      </>
+          <Settings onStart={handleStart} />
+          {error && (
+            <>
+              <div className="error-overlay"></div>
+              <div className="error-popup">
+                <p>{error}</p>
+                <button onClick={handleCloseError}>Close</button>
+              </div>
+            </>
+          )}
+        </>
       )}
       {mode && !isGameOver && (
         <Game
@@ -84,10 +86,10 @@ const App = () => {
         />
       )}
       {isGameOver && (
-        <div className="problem-container">
+        <div className="result-container">
           <h1>Game Over</h1>
-          <p>Your Score: {result}</p>
-          <button className="bt" onClick={handlePlayAgain}>
+          <header className="result">{result}</header>
+          <button className="bt" onClick={() => { handlePlayAgain(); click(); }}>
             <span className="shadow"></span>
             <span className="depth"></span>
             <span className="content">Play Again</span>

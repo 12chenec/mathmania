@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Settings.css';
+import './btStyle.css';
+import { click, dragSound, gameSound } from './sound';
 
 const Settings = ({ onStart }) => {
   const [mode, setMode] = useState('time');
@@ -20,8 +22,6 @@ const Settings = ({ onStart }) => {
     }));
   };
 
-  const isAtLeastOneOperationSelected = Object.values(operations).some(Boolean);
-
   return (
     <div>
       <header className='settingsHeader'>
@@ -30,12 +30,12 @@ const Settings = ({ onStart }) => {
       <div>
         <h3>Select Game Mode</h3>
         <div className="button-container">
-          <label className='bt'>
+          <label className="bt">
             <input
               type="radio"
               value="time"
               checked={mode === 'time'}
-              onChange={() => setMode('time')}
+              onChange={() => { click(); setMode('time'); }}
             />
             <span className="shadow"></span>
             <span className="depth"></span>
@@ -47,7 +47,7 @@ const Settings = ({ onStart }) => {
               type="radio"
               value="questions"
               checked={mode === 'questions'}
-              onChange={() => setMode('questions')}
+              onChange={() => { click(); setMode('questions'); }}
             />
             <span className="shadow"></span>
             <span className="depth"></span>
@@ -66,7 +66,7 @@ const Settings = ({ onStart }) => {
               min="10"
               max="60"
               value={timeLimit}
-              onChange={(e) => setTimeLimit(Number(e.target.value))}
+              onChange={(e) => { dragSound(); setTimeLimit(Number(e.target.value)); }}
             />
           </div>
           <p className='p'>{timeLimit} seconds</p>
@@ -82,97 +82,92 @@ const Settings = ({ onStart }) => {
               min="5"
               max="50"
               value={questionCount}
-              onChange={(e) => setQuestionCount(Number(e.target.value))}
+              onChange={(e) => { dragSound(); setQuestionCount(Number(e.target.value)) }}
             />
           </div>
           <p className='p'>{questionCount} questions</p>
         </div>
       )}
 
-      <div className="button-container">
-        <div>
-          <h3>Max Digits</h3>
-          <div className="slider-container">
-            <input
-              type="range"
-              min="1"
-              max="5"
-              value={maxDigits}
-              onChange={(e) => setMaxDigits(Number(e.target.value))}
-            />
+      <div className="center-wrapper">
+        <div className="side-by-side">
+          <div className="setting-container">
+            <h3>Max Digits</h3>
+            <div className="slider-container">
+              <input
+                type="range"
+                min="1"
+                max="5"
+                value={maxDigits}
+                onChange={(e) => { dragSound(); setMaxDigits(Number(e.target.value)) }}
+              />
+            </div>
+            <p className='p'>Maximum digits: {maxDigits}</p>
           </div>
-          <p className='p'>Maximum digits: {maxDigits}</p>
-        </div>
-
-        <h3></h3>
-
-        <div>
-          <h3>Select Operations</h3>
-          <div className="button-container">
-            <label class="bt">
-              <input
-                type="checkbox"
-                checked={operations.addition}
-                onChange={() => handleOperationChange('addition')}
-              />
-              <span class="shadow"></span>
-              <span class="depth"></span>
-              <span class="content">+</span>
-              +
-            </label>
-            <label className="bt">
-              <input
-                type="checkbox"
-                checked={operations.subtraction}
-                onChange={() => handleOperationChange('subtraction')}
-              />
-              <span class="shadow"></span>
-              <span class="depth"></span>
-              <span class="content">-</span>
-              -
-            </label>
-            <label className='bt'>
-              <input
-                type="checkbox"
-                checked={operations.multiplication}
-                onChange={() => handleOperationChange('multiplication')}
-              />
-              <span class="shadow"></span>
-              <span class="depth"></span>
-              <span class="option"></span>
-              <span class="content">×</span>
-              ×
-            </label>
-            <label className='bt'>
-              <input
-                type="checkbox"
-                checked={operations.division}
-                onChange={() => handleOperationChange('division')}
-              />
-              <span class="shadow"></span>
-              <span class="depth"></span>
-              <span class="option"></span>
-              <span class="content">÷</span>
-              ÷
-            </label>
+          <div className="setting-container">
+            <h3>Select Operations</h3>
+            <div className="button-container">
+              <label className="bt">
+                <input
+                  type="checkbox"
+                  checked={operations.addition}
+                  onChange={() => { click(); handleOperationChange('addition') }}
+                />
+                <span className="shadow"></span>
+                <span className="depth"></span>
+                <span className="content">+</span>
+                +
+              </label>
+              <label className="bt">
+                <input
+                  type="checkbox"
+                  checked={operations.subtraction}
+                  onChange={() => { click(); handleOperationChange('subtraction') }}
+                />
+                <span className="shadow"></span>
+                <span className="depth"></span>
+                <span className="content">-</span>
+                -
+              </label>
+              <label className="bt">
+                <input
+                  type="checkbox"
+                  checked={operations.multiplication}
+                  onChange={() => { click(); handleOperationChange('multiplication') }}
+                />
+                <span className="shadow"></span>
+                <span className="depth"></span>
+                <span className="option"></span>
+                <span className="content">×</span>
+                ×
+              </label>
+              <label className="bt">
+                <input
+                  type="checkbox"
+                  checked={operations.division}
+                  onChange={() => { click(); handleOperationChange('division') }}
+                />
+                <span className="shadow"></span>
+                <span className="depth"></span>
+                <span className="option"></span>
+                <span className="content">÷</span>
+                ÷
+              </label>
+            </div>
           </div>
         </div>
       </div>
 
-      <h4></h4>
-
       <div className="button-container">
-        <button class="btn"
+        <button className="btn"
           onClick={() => {
-            
-              onStart(mode, operations, timeLimit, questionCount, maxDigits)
-            
+            click();
+            onStart(mode, operations, timeLimit, questionCount, maxDigits)
           }}
-          // disabled={!isAtLeastOneOperationSelected}
         >
-          <span class="shadow"></span>
-          <span class="depth"></span>
-          <span class="content">Start</span>
+          <span className="shadow"></span>
+          <span className="depth"></span>
+          <span className="content">Start</span>
         </button>
       </div>
       <h4></h4>
